@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import pl.java.dao.BookDAO;
+import pl.java.dao.DAOFactory;
 import pl.java.model.Book;
 
 /**
@@ -29,7 +30,8 @@ public class BookServlet extends HttpServlet {
 		String title = request.getParameter("title");
 		String description = request.getParameter("description");
 		String option = request.getParameter("option");
-		BookDAO dao = new BookDAO();
+		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.MYSQL_DAO);
+		BookDAO dao = factory.getBookDAO();
 		Book book = null;
 		String operation = null;
 		boolean result = false;
