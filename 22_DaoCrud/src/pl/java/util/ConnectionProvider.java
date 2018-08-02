@@ -14,7 +14,7 @@ public class ConnectionProvider {
 	public static Connection getConnection() throws SQLException {
 		return getDSInstance().getConnection();
 	}
-	
+	//musis byæ publiczne aby udostpniæ DataSource dla Spring JDBC
 	public static DataSource getDSInstance() {
 		if(dataSource == null) {
 			try {
